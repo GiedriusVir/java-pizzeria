@@ -25,3 +25,6 @@ Tea (sugar, honey), Coffee (sugar, milk) ir t.t.)
 - Food - interfeisas maistui (galimos implementacijos: Pizza, Wrap, Tortilla ir t.t.)
 
 - Sauce - enumas
+
+### Authors
+[Diana](https://github.com/Dialiu), [Greta](https://github.com/Gretata), [Giedrius](https://github.com/GiedriusVir)
