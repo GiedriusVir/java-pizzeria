@@ -1,6 +1,3 @@
-# java-pizzeria
- BIT užduotis: sukurti picos užsakymo sistemą
-
 # [Pizzeria]
 
 **Tikslas:** sukurti picos užsakymo sistemą.
