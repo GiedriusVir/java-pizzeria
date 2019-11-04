@@ -3,7 +3,7 @@
 
 # [Pizzeria]
 
-** Tikslas: ** sukurti picos užsakymo sistemą.
+**Tikslas:** sukurti picos užsakymo sistemą.
 
 ## Užduoties aprašymas
 
