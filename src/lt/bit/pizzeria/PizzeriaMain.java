@@ -24,6 +24,27 @@ class PizzeriaMain {
         food.add(new Tortilla("Tortilla with soy", "Wheat tortilla stuffed with toasted soy sticks, Greek cheese cubes, onion slices, tomatoes and iceberg crisp salad", 2.95));
         food.add(new Tortilla("Tortilla with chicken", "Chicken tortilla scones stuffed with strips of chicken fillet, Greek cheese cubes, onion slices, tomatoes, iceberg lettuce and Chalapa chili pepper", 2.95));
 
+
+        List<Drink> drinks = new ArrayList<>();
+        drinks.add(new Beer("New Castle", "Brown ale", 0.5, 3));
+        drinks.add(new Beer("Stella Artois", "Lager", 0.5, 3));
+        drinks.add(new Beer("Genys Kalifornikacija", "American pale ale", 0.5, 3.5));
+        drinks.add(new Beer("Guinness", "Stout", 0.5, 4));
+        drinks.add(new Water("Akvile", "gazuotas", 0.5, 1.5));
+        drinks.add(new Water("Akvile", "negazuotas", 0.5, 1.5));
+        drinks.add(new Water("Neptunas", "gazuotas", 0.5, 1.5));
+        drinks.add(new Water("Neptunas", "negazuotas", 0.5, 1.5));
+        drinks.add(new SoftDrink("Fanta",  0.5, 2));
+        drinks.add(new SoftDrink("Sprite",  0.5, 2));
+        drinks.add(new SoftDrink("CocaCola",  0.5, 2));
+        drinks.add(new Tea("Green Tea", "sugar", 2));
+        drinks.add(new Tea("Fruity Tea", "sugar", 2));
+        drinks.add(new Tea("Black Tea", "milk", 2));
+        drinks.add(new Tea("Black Tea", "honey", 2));
+        drinks.add(new Coffee("Black Coffee", "sugar", 2));
+        drinks.add(new Coffee("Flat white", "sugar", 2.5));
+        drinks.add(new Coffee("Espresso", "sugar", 1.5));
+
         Iterator<Food> pizzaIterator = food.iterator();
         Iterator<Food> wrapIterator = food.iterator();
         Iterator<Food> tortillaIterator = food.iterator();
@@ -33,12 +54,15 @@ class PizzeriaMain {
         printFoodItems(wrapIterator);
         System.out.println("TORTILLIA");
         printFoodItems(tortillaIterator);
+
+
+
     }
 
     private static void printFoodItems(Iterator<Food> iterator) {
         while (iterator.hasNext()) {
             Food foodItem = iterator.next();
-            if (foodItem instanceof Pizza) {
+            if (foodItem instanceof Pizza) { // cia klaida!!!!!!!!!!!!!
                 System.out.println(foodItem);
             }
         }
