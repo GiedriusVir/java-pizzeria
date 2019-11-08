@@ -35,9 +35,9 @@ class Pizza implements Food {
 
     @Override
     public String toString() {
-        return name + "\n Sudėtis: " +
-                ingredients + "\n Dydis: " + size
-                + "cm. Kaina: " + price + "€";
+        return name + "\n Ingredients: " +
+                ingredients + "\n Size: " + size
+                + "cm. Price: " + price + "€";
     }
 
 }

@@ -13,25 +13,25 @@ class PizzeriaMain {
     public static void main(String[] args) {
 
         List<Food> food = new ArrayList<>();
-        food.add(new Pizza("Aitriujų paprikų", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, pievagrybiai, saliamis, aitriosios paprikos, augalinis aliejus su česnaku", 32, 5.89));
-        food.add(new Pizza("Akapulko", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, pievagrybiai, virtas jautienos kumpis, Chalapos paprikos, aštrus padažas, augalinis aliejus su česnaku", 32, 5.89));
-        food.add(new Pizza("Aštrioji", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, forminis kiaulienos kumpis, saliamis, Chalapos paprikos, džiovintos aštriosios paprikos, aštrus padažas, augalinis aliejus su česnaku", 32, 5.89));
-        food.add(new Pizza("Chorizo", "Kvietinių miltų pagrindas, pomidorų padažas fermentinis sūris, Chorizo dešra, aitrosios paprikos, augalinis aliejus su česnaku", 32, 5.99));
-        food.add(new Wrap("Suktinukai su kumpiu", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, forminis kiaulienos kumpis, pievagrybiai, augalinis aliejus su česnaku", 4.89));
-        food.add(new Wrap("Suktinukai su malta kiauliena", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, malta kiauliena, švž. paprikos, Chalapos paprikos, augalinis aliejus su česnaku", 4.89));
-        food.add(new Wrap("Suktinukai su vištiena", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, vištiena, pievagrybiai, konservuotos paprikos, augalinis aliejus su česnaku", 4.89));
-        food.add(new Wrap("Suktinukai vegetariški", "Kvietinių miltų pagrindas, pomidorų padažas, fermentinis sūris, pievagrybiai, konservuotos paprikos, artišokai, Salsa padažas, augalinis aliejus su česnaku", 4.89));
-        food.add(new Tortilla("Tortilija su sojomis", "Kviečių tortilija įdaryta keptomis sojos lazdelėmis, graikiško tipo sūrio kubeliais, svogūnų griežinėliais, pomidorais ir traškiomis ledkalnio salotomis", 2.95));
-        food.add(new Tortilla("Tortilija su vištiena", "Tortilijos su vištiena paplotėlis įdarytas juostelėmis supjaustyta vištienos file, graikiško tipo sūrio kubeliais, svogūnų griežinėliais, pomidorais, ledkalnio salotomis ir Chalapos aitriąja paprika, suteikiančia reikiamo aštrumo", 2.95));
+        food.add(new Pizza("The G.O.A.T.", "Mozzarella, spinach, goats' cheese, caramelised onions, red onions, tomatoes & balsamic drizzle", 32, 5.89));
+        food.add(new Pizza("Texas Meat Meltdown", "Spicy pork, chicken breast, pepperoni, chorizo & BBQ sauce base", 32, 5.89));
+        food.add(new Pizza("Hot 'N' Spicy Veg", "Triple cheese blend, peppers, jalapenos, red onions, flame roasted peppers & onions and Hut House seasoning", 32, 5.89));
+        food.add(new Pizza("Margherita", "Classic mozzarella cheese & tomato sauce", 32, 5.99));
+        food.add(new Wrap("Wrap with ham", "Wheat flour base, tomato sauce, rennet cheese, pork chops, champignons, vegetable oil with garlic", 4.89));
+        food.add(new Wrap("Wrap with minced pork", "Wheat flour base, tomato sauce, rennet cheese, minced pork, fresh peppers, chalpa peppers, vegetable oil with garlic", 4.89));
+        food.add(new Wrap("Wrap with chicken", "Wheat flour base, tomato sauce, cheese, chicken, mushrooms, canned paprika, vegetable oil with garlic", 4.89));
+        food.add(new Wrap("Vegetarian wrap", "Wheat flour base, tomato sauce, cheese, champignons, canned peppers, artichokes, salsa sauce, vegetable oil with garlic", 4.89));
+        food.add(new Tortilla("Tortilla with soy", "Wheat tortilla stuffed with toasted soy sticks, Greek cheese cubes, onion slices, tomatoes and iceberg crisp salad", 2.95));
+        food.add(new Tortilla("Tortilla with chicken", "Chicken tortilla scones stuffed with strips of chicken fillet, Greek cheese cubes, onion slices, tomatoes, iceberg lettuce and Chalapa chili pepper", 2.95));
 
         Iterator<Food> pizzaIterator = food.iterator();
         Iterator<Food> wrapIterator = food.iterator();
         Iterator<Food> tortillaIterator = food.iterator();
-        System.out.println("PICOS");
+        System.out.println("PIZZA");
         printFoodItems(pizzaIterator);
-        System.out.println("SUKTINUKAI");
+        System.out.println("WRAPS");
         printFoodItems(wrapIterator);
-        System.out.println("TORTILIJOS");
+        System.out.println("TORTILLIA");
         printFoodItems(tortillaIterator);
     }
 

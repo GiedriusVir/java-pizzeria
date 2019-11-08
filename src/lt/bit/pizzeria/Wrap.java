@@ -29,7 +29,7 @@ class Wrap implements Food {
 
     @Override
     public String toString() {
-        return name + "\n Sudėtis: " +
-                ingredients + "\n Kaina: " + price + "€";
+        return name + "\n Ingredients: " +
+                ingredients + "\n Price: " + price + "€";
     }
 }
