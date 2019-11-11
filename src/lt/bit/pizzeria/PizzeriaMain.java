@@ -7,6 +7,7 @@ PizzeriaMain - veiksmo vieta
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 class PizzeriaMain {
 
@@ -45,25 +46,54 @@ class PizzeriaMain {
         drinks.add(new Coffee("Flat white", "sugar", 2.5));
         drinks.add(new Coffee("Espresso", "sugar", 1.5));
 
+        System.out.println("MENU\n");
         Iterator<Food> pizzaIterator = food.iterator();
         Iterator<Food> wrapIterator = food.iterator();
         Iterator<Food> tortillaIterator = food.iterator();
         System.out.println("PIZZA");
-        printFoodItems(pizzaIterator);
+        printFoodItems(pizzaIterator, Pizza.class);
         System.out.println("WRAPS");
-        printFoodItems(wrapIterator);
+        printFoodItems(wrapIterator, Wrap.class);
         System.out.println("TORTILLIA");
-        printFoodItems(tortillaIterator);
+        printFoodItems(tortillaIterator, Tortilla.class);
 
+        Iterator<Drink> beerIterator = drinks.iterator();
+        Iterator<Drink> waterIterator = drinks.iterator();
+        Iterator<Drink> softDrinkIterator = drinks.iterator();
+        Iterator<Drink> teaIterator = drinks.iterator();
+        Iterator<Drink> coffeeIterator = drinks.iterator();
+        System.out.println("BEERS");
+        printDrinkItems(beerIterator, Beer.class);
+        System.out.println("WATER");
+        printDrinkItems(waterIterator, Water.class);
+        System.out.println("SOFT DRINKS");
+        printDrinkItems(softDrinkIterator, SoftDrink.class);
+        System.out.println("TEA");
+        printDrinkItems(teaIterator, Tea.class);
+        System.out.println("COFFEE");
+        printDrinkItems(coffeeIterator, Coffee.class);
 
 
     }
 
-    private static void printFoodItems(Iterator<Food> iterator) {
+    private static void printFoodItems(Iterator<Food> iterator, Class<?> className) {
+        int i = 1;
         while (iterator.hasNext()) {
             Food foodItem = iterator.next();
-            if (foodItem instanceof Pizza) { // cia klaida!!!!!!!!!!!!!
-                System.out.println(foodItem);
+            if (className.isInstance(foodItem)) {
+                System.out.println(i + ". " + foodItem);
+                i++;
+            }
+        }
+    }
+
+    private static void printDrinkItems(Iterator<Drink> iterator, Class<?> className) {
+        int i = 1;
+        while (iterator.hasNext()) {
+            Drink drinkItem = iterator.next();
+            if (className.isInstance(drinkItem)) {
+                System.out.println(i + ". " + drinkItem);
+                i++;
             }
         }
     }
