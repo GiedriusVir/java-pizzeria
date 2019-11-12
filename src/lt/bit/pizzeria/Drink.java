@@ -11,9 +11,8 @@ Drink - interfeisas arba abstrakti klasė gėrimams
  */
 
 
-interface Drink { // reikės pasirinkti abstrakti klasė ar interfeisas
+interface Drink extends MenuItem { // reikės pasirinkti abstrakti klasė ar interfeisas
 
-    public abstract String getName(); // public abstract - by default
-    double getPrice();
+    public abstract double getPrice(); // public abstract - by default
 
 }

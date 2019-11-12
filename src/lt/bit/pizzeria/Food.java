@@ -5,10 +5,9 @@ Food - interfeisas maistui
     (galimos implementacijos: Pizza, Wrap, Tortilla ir t.t.)
  */
 
-interface Food {
+interface Food extends MenuItem {
 
-    public abstract String getName(); // public abstract - by default
-    String getIngredients();
+    public abstract String getIngredients(); // public abstract - by default
     double getPrice();
 
 }
