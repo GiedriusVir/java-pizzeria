@@ -66,7 +66,10 @@ class PizzeriaMain {
         System.out.println("TEA");
         printMenuItems(teaIterator, Tea.class);
         System.out.println("COFFEE");
-        printMenuItems(coffeeIterator, Coffee.class);
+        printDrinkItems(coffeeIterator, Coffee.class);
+
+        Sauce s1 = Sauce.TABASCO;
+        System.out.println(s1);
 
     }
 
