@@ -12,10 +12,10 @@ Beer+New Castle+Brown ale+0.5+3
 Beer+Stella Artois+Lager+0.5+3
 Beer+Genys Kalifornikacija+American pale ale+0.5+3.5
 Beer+Guinness+Stout+0.5+4
-Water+Akvile+gazuotas+0.5+1.5
-Water+Akvile+negazuotas+0.5+1.5
-Water+Neptunas+gazuotas+0.5+1.5
-Water+Neptunas+negazuotas+0.5+1.5
+Water+Akvile+sparkling+0.5+1.5
+Water+Akvile+still+0.5+1.5
+Water+Neptunas+sparkling+0.5+1.5
+Water+Neptunas+still+0.5+1.5
 SoftDrink+Fanta+ 0.5+2
 SoftDrink+Sprite+ 0.5+2
 SoftDrink+CocaCola+ 0.5+2

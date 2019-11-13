@@ -7,10 +7,7 @@ PizzeriaMain - veiksmo vieta
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 class PizzeriaMain {
 
@@ -93,54 +90,79 @@ class PizzeriaMain {
 
         try {
             List<String> menuText = Files.readAllLines(Paths.get("source/menu.txt"));
-            List<MenuItem> menu = new ArrayList<>();
+            Map<String, List<MenuItem>> menu = new TreeMap<>();
+            List<MenuItem> pizza = new ArrayList<>();
+            List<MenuItem> wrap = new ArrayList<>();
+            List<MenuItem> tortilla = new ArrayList<>();
+            List<MenuItem> beer = new ArrayList<>();
+            List<MenuItem> water = new ArrayList<>();
+            List<MenuItem> softDrink = new ArrayList<>();
+            List<MenuItem> tea = new ArrayList<>();
+            List<MenuItem> coffee = new ArrayList<>();
             String[] item = new String[]{};
             for (String line: menuText) {
                 item = line.split("\\+");
                 switch (item[0]) {
                     case "Pizza": {
                         Pizza menuItem = new Pizza(item[1], item[2], Integer.parseInt(item[3]), Double.parseDouble(item[4]));
-                        menu.add(menuItem);
+                        pizza.add(menuItem);
                         break;
                     }
                     case "Wrap": {
                         Wrap menuItem = new Wrap(item[1], item[2], Double.parseDouble(item[3]));
-                        menu.add(menuItem);
+                        wrap.add(menuItem);
                         break;
                     }
                     case "Tortilla": {
                         Tortilla menuItem = new Tortilla(item[1], item[2], Double.parseDouble(item[3]));
-                        menu.add(menuItem);
+                        tortilla.add(menuItem);
                         break;
                     }
                     case "Beer": {
                         Beer menuItem = new Beer(item[1], item[2], Double.parseDouble(item[3]), Double.parseDouble(item[4]));
-                        menu.add(menuItem);
+                        beer.add(menuItem);
                         break;
                     }
                     case "Water": {
                         Water menuItem = new Water(item[1], item[2], Double.parseDouble(item[3]), Double.parseDouble(item[4]));
-                        menu.add(menuItem);
+                        water.add(menuItem);
                         break;
                     }
                     case "SoftDrink": {
                         SoftDrink menuItem = new SoftDrink(item[1], Double.parseDouble(item[2]), Double.parseDouble(item[3]));
-                        menu.add(menuItem);
+                        softDrink.add(menuItem);
                         break;
                     }
                     case "Tea": {
                         Tea menuItem = new Tea(item[1], item[2], Double.parseDouble(item[3]));
-                        menu.add(menuItem);
+                        tea.add(menuItem);
                         break;
                     }
                     case "Coffee": {
                         Coffee menuItem = new Coffee(item[1], item[2], Double.parseDouble(item[3]));
-                        menu.add(menuItem);
+                        coffee.add(menuItem);
                         break;
                     }
                 }
             }
-            menu.forEach(i -> System.out.println(i+"\n"));
+            menu.put("Pizza", pizza);
+            menu.put("Wrap", wrap);
+            menu.put("Tortilla", tortilla);
+            menu.put("Beer", beer);
+            menu.put("Water", water);
+            menu.put("Soft Drink", softDrink);
+            menu.put("Tea", tea);
+            menu.put("Coffee", coffee);
+            for (Map.Entry<String, List<MenuItem>> entry : menu.entrySet()) {
+                String key = entry.getKey();
+                List<MenuItem> values = entry.getValue();
+                System.out.println(key);
+                for (MenuItem value: values) {
+                    System.out.println(value);
+                }
+                System.out.println();
+            }
+//            System.out.println(menu.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
