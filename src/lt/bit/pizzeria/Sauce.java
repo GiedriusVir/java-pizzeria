@@ -35,8 +35,6 @@ public enum Sauce implements Food {
     public double getPrice() {
         return price;
     }
-
-
 }
 
 
