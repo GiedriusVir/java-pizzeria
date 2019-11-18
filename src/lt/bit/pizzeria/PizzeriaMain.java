@@ -75,102 +75,138 @@ class PizzeriaMain {
 //
 //        Sauce s1 = Sauce.TABASCO;
 //        System.out.println(s1);
-        readInputMakeList();
 
-
+//        readInputMakeList();
         scanner();
   }
 
-    private  static void scanner() {
+    private static void scanner() {
+        String clientName;
+        String eat;
+        String typeEat;
+        int quantityF;
+        String moreEat;
+        String drink = null;
+        String typeDrink;
+        int quantityD;
+        String moreDrink;
+        String sauce;
+        String typeSauce;
+        int quantityS;
+        String moreSauce;
+
         // SCANNER griauciai
         Scanner sc = new Scanner(System.in);
-            String clientName;
+
             System.out.println("Enter your name and press 'enter'");
             clientName = sc.nextLine();
             System.out.println("Dear " + clientName + "! Welcome to our pizzeria. Please make your choice.");
 
-            String eat;
-            System.out.println("Would you like to eat something? Please enter yes or no");
-            eat = sc.nextLine();
-            // if no, tada pereiti prie klausimo apie gerimus.
-            // if yes, tada klausti toliau apie maista:
+            /*
+            FOOD
+             */
+            System.out.println("Would you like to eat something? Please enter 'yes' or 'no'");
+            eat = sc.next();
+            while (eat.equals("yes")) {
+                // if no, tada pereiti prie klausimo apie gerimus.
+                // if yes, tada klausti toliau apie maista:
 
-            String typeEat;
-            System.out.println("What kind of food would you like to eat: pizza, wrap or tortilla? Please choose one type.");
-            typeEat = sc.nextLine();
+                System.out.println("What kind of food would you like to eat: pizza, wrap or tortilla? Please choose one type.");
+                typeEat = sc.next();
 
-            int quantityF;
-            System.out.println("Please enter quantity (1, , 2, 3 etc.)");
-            quantityF = sc.nextInt();
+                System.out.println("Please enter quantity (1, 2, 3 etc.)");
+                quantityF = sc.nextInt();
 
-            String moreEat;
-            System.out.println("Would you like to order more food? Please enter yes or no.");
-            moreEat = sc.nextLine();
-            // if no, tada pereiti prie klausimo apie gerimus.
-            // if yes, tada vel klausti apie maista.
+                System.out.println("Would you like to order more food? Please enter 'yes' or 'no'.");
+                moreEat = sc.next();
+                if (moreEat.equals("yes")) {
+                    eat = "yes";
+                } else {
+                    eat = "no";
+                }
+                // if no, tada pereiti prie klausimo apie gerimus.
+                // if yes, tada vel klausti apie maista.
+            }
 
-            String drink;
-            System.out.println("Would you like something to drink? Please enter yes or no");
-            drink = sc.nextLine();
-            // if no, tada pereiti prie klausimo apie padazus;
-            // if yes, tada klausti toliau apie gerimus;
+            /*
+            DRINKS
+             */
+            System.out.println("Would you like something to drink? Please enter 'yes' or 'no'");
+            drink = sc.next();
+            while (drink.equals("yes")) {
+                // if no, tada pereiti prie klausimo apie padazus;
+                // if yes, tada klausti toliau apie gerimus;
 
-            String typeDrink;
-            System.out.println("What kind of drink would you like: beer, water, tea, coffee or soft drink? Please choose one type.");
-            typeDrink = sc.nextLine();
+                System.out.println("What kind of drink would you like: beer, water, tea, coffee or soft drink? Please choose one type.");
+                typeDrink = sc.next();
 
-            int quantityD;
-            System.out.println("Please enter quantity (1, , 2, 3 etc.)");
-            quantityD = sc.nextInt();
+                System.out.println("Please enter quantity (1, 2, 3 etc.)");
+                quantityD = sc.nextInt();
 
-            String moreDrink;
-            System.out.println("Would you like to order more drinks? Please enter yes or no.");
-            moreDrink = sc.nextLine();
-            // if no, tada pereiti prie klausimo apie padazus.
-            // if yes, tada vel klausti apie gerimus.
+                System.out.println("Would you like to order more drinks? Please enter 'yes' or 'no'.");
+                moreDrink = sc.next();
+                if (moreDrink.equals("yes")) {
+                    drink = "yes";
+                } else {
+                    drink = "no";
+                }
+                    // if no, tada pereiti prie klausimo apie padazus.
+                    // if yes, tada vel klausti apie gerimus.
+            }
 
-            String sauce;
-            System.out.println("Would you like to add some sauce? Please enter yes or no");
-            sauce = sc.nextLine();
-            // if no, tada pereiti prie klausimo apie ...
-            // if yes, tada klausiam apie padazu rusis:
 
-            String typeSauce;
-            System.out.println("Please select sauce: Tabasco (T), Sriracha (S), Pesto (P), BBQ (B), Alfredo (A). " +
-                "Please enter the first letter of the sauce name: T, S, P, B or A.");
-            typeSauce = sc.nextLine();
+            /*
+            SAUCE
+             */
+            System.out.println("Would you like to add some sauce? Please enter 'yes' or 'no'");
+            sauce = sc.next();
+            while (sauce.equals("yes")) {
+                // if no, tada pereiti prie klausimo apie ...
+                // if yes, tada klausiam apie padazu rusis:
+                System.out.println("Please select sauce: Tabasco (T), Sriracha (S), Pesto (P), BBQ (B), Alfredo (A). " +
+                        "Please enter the first letter of the sauce name: T, S, P, B or A.");
+                typeSauce = sc.next();
 
-            int quantityS;
-            System.out.println("Please enter quantity (1, 2, 3 etc.)");
-            quantityS = sc.nextInt();
+                System.out.println("Please enter quantity (1, 2, 3 etc.)");
+                quantityS = sc.nextInt();
 
-            String moreSauce;
-            System.out.println("Would you like to order more sauce? Please enter yes or no.");
-            moreSauce = sc.nextLine();
-            // if no, tada pereiti prie klausimo apie tai, kur valgys
-            // IF YES, vel klausti apie padazus;
+                System.out.println("Would you like to order more sauce? Please enter 'yes' or 'no'.");
+                moreSauce = sc.next();
+                if (moreSauce.equals("yes")) {
+                    sauce = "yes";
+                } else {
+                    sauce = "no";
+                }
+                // if no, tada pereiti prie klausimo apie tai, kur valgys
+                // IF YES, vel klausti apie padazus;
+            }
 
             String eatWhere;
-            System.out.println("Would you like to eat 1.Inside or 2.Take-away (extra charge of 0.5 eur)? Please enter 1 or 2.");
-            eatWhere = sc.nextLine();
+            System.out.println("Would you like to eat 1.Inside or 2.Take-away (extra charge of 0.5 eur)? Please enter '1' or '2'.");
+            eatWhere = sc.next();
             // If take-away, tada priskaiciuoti papildomus 0.5 eur.
 
             String confirmOrder;
-            System.out.println("Please confirm or cancel your order. Enter confirm or cancel.");
-            confirmOrder = sc.nextLine();
+            System.out.println("Please confirm or cancel your order. Enter 'confirm' or 'cancel'.");
+            confirmOrder = sc.next();
             //if confirm, tada pereiti prie saskaitos;
             // if cancel, tada leisti padaryt exit ARBA formuot nauja uzsakyma nuo nulio:
-            String exitOrNew;
-            System.out.println("Would you like to exit or make a new order from scratch? Please enter exit or new.");
-            exitOrNew = sc.nextLine();
-            // if exit, tada:
-            System.out.println("Bye! See you next time"); // nutraukti sitoj vietoj;
-            // if new order, tada nukreipti zmogu i pacia pradzia, t.y. enter your name + welcome!
-
-            // tie, kurie patvirtino uzsakyma [zr. auksciau], tada jiems pateikti saskaita:
-            double bill; // sukurti apskaiciavima saskaitos
-            System.out.println("Thank you for your order! This is your final bill: " + bill); //[isvardinti visus pasirinkimus su kainomis +
-            // pateikti kaina + uzsakymo data ir laikas + preliminarus uzsakymo ivykdymo terminas].
+            if (confirmOrder.equals("confirm")) {
+                // tie, kurie patvirtino uzsakyma [zr. auksciau], tada jiems pateikti saskaita:
+//            double bill; // sukurti apskaiciavima saskaitos
+//            System.out.println("Thank you for your order! This is your final bill: " + bill); //[isvardinti visus pasirinkimus su kainomis +
+                // pateikti kaina + uzsakymo data ir laikas + preliminarus uzsakymo ivykdymo terminas].
+            } else if (confirmOrder.equals("cancel")) {
+                String exitOrNew;
+                System.out.println("Would you like to exit or make a new order from scratch? Please enter 'exit' or 'new'.");
+                exitOrNew = sc.next();
+                // if exit, tada:
+                if (exitOrNew.equals("exit")) {
+                    System.out.println("Bye! See you next time"); // nutraukti sitoj vietoj;
+                } else {
+                    scanner(); // if new order, tada nukreipti zmogu i pacia pradzia, t.y. enter your name + welcome!
+                }
+            }
 
     }
 
@@ -259,7 +295,6 @@ class PizzeriaMain {
                 for (MenuItem value: values) {
                     System.out.println(value);
                 }
-                System.out.println();
             }
 //            System.out.println(menu.toString());
         } catch (IOException e) {
