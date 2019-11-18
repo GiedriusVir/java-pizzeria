@@ -15,6 +15,8 @@ import java.util.*;
 
 class PizzeriaMain {
 
+    private static TreeMap<String, List<MenuItem>> menu;
+
     public static void main(String[] args) {
 
 //        List<MenuItem> menuItems = new ArrayList<>();
@@ -76,7 +78,7 @@ class PizzeriaMain {
 //        Sauce s1 = Sauce.TABASCO;
 //        System.out.println(s1);
 
-//        readInputMakeList();
+        readInputMakeList();
         scanner();
   }
 
@@ -84,9 +86,10 @@ class PizzeriaMain {
         String clientName;
         String eat;
         String typeEat;
+        int itemNumber;
         int quantityF;
         String moreEat;
-        String drink = null;
+        String drink;
         String typeDrink;
         int quantityD;
         String moreDrink;
@@ -96,6 +99,7 @@ class PizzeriaMain {
         String moreSauce;
 
         // SCANNER griauciai
+        List<Order> order = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
             System.out.println("Enter your name and press 'enter'");
@@ -111,11 +115,17 @@ class PizzeriaMain {
                 // if no, tada pereiti prie klausimo apie gerimus.
                 // if yes, tada klausti toliau apie maista:
 
-                System.out.println("What kind of food would you like to eat: pizza, wrap or tortilla? Please choose one type.");
+                System.out.println("What kind of food would you like to eat: Pizza, Wrap or Tortilla? Please choose one type.");
                 typeEat = sc.next();
+                for (int i = 0; i < menu.get(typeEat).size(); i++) {
+                    System.out.println((i + 1) + ": " + menu.get(typeEat).get(i));
+                }
+                System.out.println("What " + typeEat.toLowerCase() + " do you want? Please enter number.");
+                itemNumber = sc.nextInt();
 
                 System.out.println("Please enter quantity (1, 2, 3 etc.)");
                 quantityF = sc.nextInt();
+                order.add(new Order(menu.get(typeEat).get(itemNumber - 1).getName(), quantityF, 4.89));
 
                 System.out.println("Would you like to order more food? Please enter 'yes' or 'no'.");
                 moreEat = sc.next();
@@ -139,9 +149,15 @@ class PizzeriaMain {
 
                 System.out.println("What kind of drink would you like: beer, water, tea, coffee or soft drink? Please choose one type.");
                 typeDrink = sc.next();
+                for (int i = 0; i < menu.get(typeDrink).size(); i++) {
+                    System.out.println((i + 1) + ": " + menu.get(typeDrink).get(i));
+                }
+                System.out.println("What " + typeDrink.toLowerCase() + " do you want? Please enter number.");
+                itemNumber = sc.nextInt();
 
                 System.out.println("Please enter quantity (1, 2, 3 etc.)");
                 quantityD = sc.nextInt();
+                order.add(new Order(menu.get(typeDrink).get(itemNumber - 1).getName(), quantityD, 4.89));
 
                 System.out.println("Would you like to order more drinks? Please enter 'yes' or 'no'.");
                 moreDrink = sc.next();
@@ -166,9 +182,15 @@ class PizzeriaMain {
                 System.out.println("Please select sauce: Tabasco (T), Sriracha (S), Pesto (P), BBQ (B), Alfredo (A). " +
                         "Please enter the first letter of the sauce name: T, S, P, B or A.");
                 typeSauce = sc.next();
+                for (int i = 0; i < menu.get(typeSauce).size(); i++) {
+                    System.out.println((i + 1) + ": " + menu.get(typeSauce).get(i));
+                }
+                System.out.println("What " + typeSauce.toLowerCase() + " do you want? Please enter number.");
+                itemNumber = sc.nextInt();
 
                 System.out.println("Please enter quantity (1, 2, 3 etc.)");
                 quantityS = sc.nextInt();
+                order.add(new Order(menu.get(typeSauce).get(itemNumber - 1).getName(), quantityS, 4.89));
 
                 System.out.println("Would you like to order more sauce? Please enter 'yes' or 'no'.");
                 moreSauce = sc.next();
@@ -225,7 +247,8 @@ class PizzeriaMain {
 
         try {
             List<String> menuText = Files.readAllLines(Paths.get("source/menu.txt"));
-            Map<String, List<MenuItem>> menu = new TreeMap<>();
+//            Map<String, List<MenuItem>> menu = new TreeMap<>();
+            menu = new TreeMap<>();
             List<MenuItem> pizza = new ArrayList<>();
             List<MenuItem> wrap = new ArrayList<>();
             List<MenuItem> tortilla = new ArrayList<>();
@@ -291,9 +314,9 @@ class PizzeriaMain {
             for (Map.Entry<String, List<MenuItem>> entry : menu.entrySet()) {
                 String key = entry.getKey();
                 List<MenuItem> values = entry.getValue();
-                System.out.println(key);
+//                System.out.println(key);
                 for (MenuItem value: values) {
-                    System.out.println(value);
+//                    System.out.println(value);
                 }
             }
 //            System.out.println(menu.toString());
