@@ -8,6 +8,6 @@ Food - interfeisas maistui
 interface Food extends MenuItem {
 
     public abstract String getIngredients(); // public abstract - by default
-    double getPrice();
+//    double getPrice();
 
 }
