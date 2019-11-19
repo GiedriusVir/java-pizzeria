@@ -6,7 +6,7 @@ import java.util.Scanner;
 NOTE: Enum constructor must have private or package scope. You cannot use the public access modifier.
  */
 
-public enum Sauce implements Food {
+enum Sauce implements Food {
     TABASCO ("Tabasco", 0.8),
     SRIRACHA("Sriracha", 1.2),
     PESTO("Pesto", 1.0),
