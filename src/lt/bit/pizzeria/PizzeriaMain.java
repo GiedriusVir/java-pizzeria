@@ -4,6 +4,7 @@ package lt.bit.pizzeria;
 PizzeriaMain - veiksmo vieta
  */
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -36,7 +37,7 @@ class PizzeriaMain {
         Sauce sauceName = null;
         String eatWhere;
         String confirmOrder;
-        double bill;
+        String bill;
         String exitOrNew;
 
         // SCANNER griauciai
@@ -182,8 +183,13 @@ class PizzeriaMain {
             }
     }
 
-    private static double billSum(List<Order> order) {
-        return (double) order.stream().mapToDouble(Order::getPrice).sum();
+    private static String billSum(List<Order> order) {
+        DecimalFormat dc = new DecimalFormat("#.##");
+        double sum = 0;
+        for (int i = 0; i < order.size(); i++) {
+            sum += order.get(i).getQuantity() * order.get(i).getPrice();
+        }
+        return dc.format(sum);
     }
 
     private static void readInputMakeList() {

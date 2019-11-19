@@ -1,5 +1,7 @@
 package lt.bit.pizzeria;
 
+import java.text.DecimalFormat;
+
 class Order {
     private String name;
     private int quantity;
@@ -26,6 +28,12 @@ class Order {
     @Override
     public String toString() {
         return name + " x " + quantity +
-                ", price: " + (double) (price * quantity) + " eur";
+                ", price: " + multiply(price, quantity) + " eur";
+    }
+
+    private static String multiply(double price, int quantity) {
+        DecimalFormat dc = new DecimalFormat("#.##");
+        String multiply = dc.format(price * quantity);
+        return multiply;
     }
 }
