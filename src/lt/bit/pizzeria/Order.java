@@ -26,6 +26,6 @@ class Order {
     @Override
     public String toString() {
         return name + " x " + quantity +
-                ", price: " + (double) (price * quantity) + " eur";
+                ", price: " + (price * quantity) + " eur";
     }
 }

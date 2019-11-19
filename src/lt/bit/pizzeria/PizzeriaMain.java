@@ -183,7 +183,11 @@ class PizzeriaMain {
     }
 
     private static double billSum(List<Order> order) {
-        return (double) order.stream().mapToDouble(Order::getPrice).sum();
+        double sum = 0;
+        for (int i = 0; i < order.size(); i++) {
+            sum += order.get(i).getQuantity() * order.get(i).getPrice();
+        }
+        return sum;
     }
 
     private static void readInputMakeList() {
