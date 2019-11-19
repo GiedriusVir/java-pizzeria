@@ -4,6 +4,8 @@ package lt.bit.pizzeria;
 PizzeriaMain - veiksmo vieta
  */
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -33,8 +35,14 @@ class PizzeriaMain {
         String drink;
         String sauce;
         Sauce sauceName = null;
+        String eatWhere;
+        String confirmOrder;
+        String bill;
+        String exitOrNew;
 
         // SCANNER griauciai
+        Date dateStart = new Date();
+        String date1 = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss").format(dateStart);
         List<Order> order = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
@@ -77,7 +85,7 @@ class PizzeriaMain {
             drink = sc.next();
             while (drink.equals("yes")) { // if yes, tada klausti toliau apie gerimus;
                                           // if no, tada pereiti prie klausimo apie padazus;
-                System.out.println("What kind of drink would you like: beer, water, tea, coffee or soft drink? Please choose one type.");
+                System.out.println("What kind of drink would you like: beer, water, tea, coffee or soft-drink? Please choose one type.");
                 type = sc.next().toLowerCase();
                 for (int i = 0; i < menu.get(type).size(); i++) {
                     System.out.println((i + 1) + ": " + menu.get(type).get(i));
@@ -140,33 +148,48 @@ class PizzeriaMain {
                 }
             }
 
-            order.forEach(o -> System.out.println(o.toString()));
-
-            String eatWhere;
             System.out.println("Would you like to eat 1.Inside or 2.Take-away (extra charge of 0.5 eur)? Please enter '1' or '2'.");
             eatWhere = sc.next(); // If take-away, tada priskaiciuoti papildomus 0.5 eur.
+            if (eatWhere.equals("1")) {
+                bill = billSum(order);
+            } else {
+                order.add(new Order("Take-away extra charge", 1, 0.5));
+                bill = billSum(order);
+            }
 
-            String confirmOrder;
+
             System.out.println("Please confirm or cancel your order. Enter 'confirm' or 'cancel'.");
             confirmOrder = sc.next();
-            //if confirm, tada pereiti prie saskaitos;
-            // if cancel, tada leisti padaryt exit ARBA formuot nauja uzsakyma nuo nulio:
-            if (confirmOrder.equals("confirm")) {
-                // tie, kurie patvirtino uzsakyma [zr. auksciau], tada jiems pateikti saskaita:
-//            double bill; // sukurti apskaiciavima saskaitos
-//            System.out.println("Thank you for your order! This is your final bill: " + bill); //[isvardinti visus pasirinkimus su kainomis +
-                // pateikti kaina + uzsakymo data ir laikas + preliminarus uzsakymo ivykdymo terminas].
-            } else if (confirmOrder.equals("cancel")) {
-                String exitOrNew;
+            Date dateEnd = new Date();
+            String date2 = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss").format(dateEnd);
+            if (confirmOrder.equals("confirm")) {  // if confirm, tada pereiti prie saskaitos;
+                                                   // tie, kurie patvirtino uzsakyma [zr. auksciau], tada jiems pateikti saskaita:
+                System.out.println("\n-------------------------\n" + date1 + "\n-------------------------");
+                order.forEach(o -> System.out.println(o.toString())); // isvardinti visi pasirinkimai su kainomis
+                System.out.println();
+                System.out.println("Thank you for your order!\nThis is your final bill: " + bill + "eur\n"); // pateikta kaina
+
+                System.out.println("Preliminary duration of order execution: ~60min"); // preliminarus uzsakymo ivykdymo terminas
+                System.out.println("-------------------------\n" + date2 + "\n-------------------------"); // uzsakymo data ir laikas
+
+            } else if (confirmOrder.equals("cancel")) { // if cancel, tada leisti padaryt exit ARBA formuot nauja uzsakyma nuo nulio:
                 System.out.println("Would you like to exit or make a new order from scratch? Please enter 'exit' or 'new'.");
                 exitOrNew = sc.next();
-                // if exit, tada:
-                if (exitOrNew.equals("exit")) {
+                if (exitOrNew.equals("exit")) { // if exit, tada:
                     System.out.println("Bye! See you next time"); // nutraukti sitoj vietoj;
                 } else {
                     scanner(); // if new order, tada nukreipti zmogu i pacia pradzia, t.y. enter your name + welcome!
                 }
             }
+    }
+
+    private static String billSum(List<Order> order) {
+        DecimalFormat dc = new DecimalFormat("#.##");
+        double sum = 0;
+        for (int i = 0; i < order.size(); i++) {
+            sum += order.get(i).getQuantity() * order.get(i).getPrice();
+        }
+        return dc.format(sum);
     }
 
     private static void readInputMakeList() {
@@ -232,7 +255,7 @@ class PizzeriaMain {
             menu.put("tortilla", tortilla);
             menu.put("beer", beer);
             menu.put("water", water);
-            menu.put("soft drink", softDrink);
+            menu.put("soft-drink", softDrink);
             menu.put("tea", tea);
             menu.put("coffee", coffee);
             for (Map.Entry<String, List<MenuItem>> entry : menu.entrySet()) {
